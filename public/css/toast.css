@@ -1,0 +1,41 @@
+/* Toast Notification Styles */
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.toast-notification.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.toast-notification.success {
+    border-left: 4px solid #22c55e;
+}
+
+.toast-notification .icon {
+    color: #22c55e;
+    font-size: 1.5rem;
+}
+
+.toast-notification .message {
+    color: #1f2937;
+    font-size: 0.875rem;
+    font-weight: 500;
+}

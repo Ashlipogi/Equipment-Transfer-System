@@ -1,0 +1,377 @@
+    /* Print-specific styles */
+    @media print {
+        @page {
+            /* Let the browser use the selected paper size */
+            margin: 0.5cm;
+        }
+
+        body {
+            margin: 0;
+            padding: 10px;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            font-size: 10px;
+            line-height: 1.2;
+        }
+
+        /* Print Template Container */
+        #print-template {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* Table styles with improved page break handling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            page-break-inside: auto;
+            margin-bottom: 8px;
+            table-layout: fixed;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto;
+        }
+
+        th, td {
+            padding: 4px;
+            border: 1px solid #000;
+            font-size: 9px;
+            word-wrap: break-word;
+            overflow: hidden;
+            vertical-align: top;
+        }
+
+        /* Main items table */
+        #print-template > table:nth-child(2) {
+            margin-bottom: 15px;
+            page-break-after: auto;
+        }
+
+        /* Invoice and Receipt section */
+        #print-template > table:nth-child(3) {
+            page-break-before: auto;
+            page-break-inside: avoid;
+            margin-top: 15px;
+        }
+
+        /* Footer sections - keep together */
+        #print-template > table:nth-last-child(-n+3) {
+            page-break-inside: avoid;
+            break-inside: avoid;
+            margin-top: 10px;
+        }
+
+        /* Header styles */
+        .invoice-header {
+            background-color: red !important;
+            color: black !important;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 6px;
+            margin: 8px 0;
+        }
+
+        .gen-header {
+            font-size: 9px;
+            text-align: left;
+            padding: 3px;
+        }
+
+        /* Column width adjustments */
+        td:nth-child(1) { width: 5%; }  /* QTY */
+        td:nth-child(2) { width: 25%; } /* Description */
+        td:nth-child(3) { width: 12%; } /* Date Purchase */
+        td:nth-child(4) { width: 12%; } /* Property No */
+        td:nth-child(5) { width: 12%; } /* Classification No */
+        td:nth-child(6) { width: 17%; } /* Unit Value */
+        td:nth-child(7) { width: 17%; } /* Total Value */
+
+        /* Signature section spacing */
+        .signature-section {
+            margin-top: 20px;
+            page-break-inside: avoid;
+        }
+
+        /* Hide non-printable elements */
+        .dataTables_wrapper,
+        .dropdown,
+        #filterModal,
+        .modal-overlay {
+            display: none !important;
+        }
+
+        /* Ensure text alignment */
+        .text-center {
+            text-align: center !important;
+        }
+
+        .text-left {
+            text-align: left !important;
+        }
+
+        /* Compact spacing for both paper sizes */
+        #print-template > table {
+            margin-bottom: 5px;
+        }
+
+        /* Ensure content fits within page boundaries */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Reduce spacing between sections */
+        .section-spacer {
+            height: 10px;
+        }
+
+        /* Ensure proper scaling */
+        #print-template {
+            zoom: 0.95;
+        }
+    }
+
+    /* DataTables Wrapper Styles */
+    .dataTables_wrapper {
+        padding: 0;
+        font-family: inherit;
+    }
+
+    .dataTables_length,
+    .dataTables_filter {
+        padding: 1rem;
+        position: relative;
+    }
+
+    .dataTables_filter {
+        display: flex !important;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .dataTables_filter::before {
+        content: '';
+        order: -1;
+    }
+
+    #filterButton {
+        order: -1;
+        background-color: #3b82f6 !important;
+        display: inline-flex !important;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.2s;
+    }
+
+    #filterButton:hover {
+        background-color: #2563eb !important;
+    }
+
+    #filterButton i {
+        font-size: 1.25rem;
+    }
+
+    .dataTables_length select {
+        padding: 0.5rem 2rem 0.5rem 0.75rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.375rem;
+        margin: 0 0.5rem;
+        background-color: white;
+        width: 60px!important;
+    }
+
+    .dataTables_filter input {
+        padding: 0.5rem 1rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.375rem;
+        margin-left: 0.5rem;
+        min-width: 250px;
+    }
+
+    /* Table Styles */
+    #transferredTable {
+        width: 100% !important;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    #transferredTable thead th {
+        background-color: #f8fafc;
+        padding: 1rem;
+        font-weight: 600;
+        text-align: center !important;
+        font-size: 0.875rem;
+        color: #4a5568;
+        border-bottom: 2px solid #e2e8f0;
+        white-space: nowrap;
+    }
+
+    #transferredTable tbody td {
+        padding: 1rem;
+        border-bottom: 1px solid #e2e8f0;
+        color: #1a202c;
+        text-align: center !important;
+        vertical-align: middle;
+    }
+
+    #transferredTable tbody tr:hover {
+        background-color: #f7fafc;
+    }
+
+    .description-cell {
+        max-width: 400px;
+        white-space: normal !important;
+        line-height: 1.5;
+        text-align: left !important;
+    }
+
+    /* Pagination Styles */
+    .dataTables_paginate {
+        padding: 1rem;
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.25rem;
+    }
+
+    .paginate_button {
+        padding: 0.5rem 1rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        background-color: white;
+    }
+
+    .paginate_button.current {
+        background-color: #4299e1;
+        color: white;
+        border-color: #4299e1;
+    }
+
+    .paginate_button:hover:not(.current) {
+        background-color: #f7fafc;
+    }
+
+    .dataTables_info {
+        padding: 1rem;
+        color: #4a5568;
+    }
+
+    .overflow-x-auto {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .settings-icon {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 5px;
+        color: #666;
+        transition: color 0.3s ease;
+    }
+
+    .settings-icon:hover {
+        color: #333;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 120px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        border-radius: 4px;
+        right: 0;
+        top: 100%;
+        margin-top: 5px;
+    }
+
+    .dropdown-content a {
+        color: #333;
+        padding: 8px 16px;
+        text-decoration: none;
+        display: block;
+        font-size: 14px;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown-content a:not(:last-child) {
+        border-bottom: 1px solid #e9e9e9;
+    }
+
+    /* Filter Modal Styles */
+    #filterModal {
+        z-index: 9999 !important;
+    }
+
+    #filterModal.show {
+        transform: translateX(0);
+        display: block;
+    }
+
+    #filterForm button[type="submit"] {
+        display: inline-block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background-color: #4f46e5 !important;
+        color: white !important;
+    }
+
+    #filterForm button[type="reset"] {
+        display: inline-block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background-color: white !important;
+        color: #374151 !important;
+    }
+
+    #filterForm button {
+        width: 100%;
+        font-weight: 500;
+        min-height: 40px;
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9998;
+        display: none;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .modal-overlay.show {
+        display: block;
+        opacity: 1;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .dataTables_filter input {
+            min-width: 200px;
+        }
+
+        .description-cell {
+            max-width: 300px;
+        }
+    }

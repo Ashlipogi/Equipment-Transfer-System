@@ -1,0 +1,141 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.header div {
+    display: flex;
+    gap: 10px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-table th, .user-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
+}
+
+.user-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.description-cell {
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.description-cell.ql-editor {
+    white-space: normal;
+    font-family: inherit;
+}
+
+.description-cell.ql-editor p {
+    margin: 0;
+}
+
+.description-cell.ql-editor ul,
+.description-cell.ql-editor ol {
+    padding-left: 1.5em;
+    margin: 0;
+}
+
+.description-cell.ql-editor li {
+    padding-left: 0;
+    margin: 0;
+}
+
+.description-cell.ql-editor .ql-align-center {
+    text-align: center;
+}
+
+.description-cell.ql-editor .ql-align-right {
+    text-align: right;
+}
+
+.description-cell.ql-editor .ql-align-justify {
+    text-align: justify;
+}
+
+.description-cell.ql-editor strong {
+    font-weight: bold;
+}
+
+.description-cell.ql-editor em {
+    font-style: italic;
+}
+
+.description-cell.ql-editor u {
+    text-decoration: underline;
+}
+
+.description-cell.ql-editor s {
+    text-decoration: line-through;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+.text-right {
+    text-align: right;
+}
